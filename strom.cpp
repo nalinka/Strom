@@ -35,19 +35,25 @@ int main() {
   int n = 0;
   vector<int> pocet;
   vector<string> nove;
+  pocet.resize(1);
+  nove.resize(1);
+  pocet[0] = 0;
   sort(words.begin(), words.end());
   
   
   for(int j =0; j < words.size(); j++){
-   if(words[j] == words[j+1]){
-    pocet[j]= pocet[j] + 1;
+   if(nove[n] == words[j]){
+    if (pocet.size()==n)
+      pocet[n]++;
+    else
+      pocet.push_back(1);
    } else{
     nove.push_back(words[j]);
     n++;
    } 
   }
   for(int i = 0; i < nove.size(); i++){
-    printf("%s %d \n",nove[i].c_str(), pocet[i]);
+   printf("%s %d \n",nove[i].c_str(), pocet[i]);
   }
   
   
