@@ -8,23 +8,14 @@
 
 using namespace std;
 
-void PrintVector(const vector<string> list) {
-  for(int i = 0; i < list.size(); i++){
-    printf("%s \n",list[i].c_str());
-  }
-}
-
 int main() {
-  printf("%d \n", __LINE__);
   char a[200];
   vector<string> words;
   FILE* file = fopen("in.txt", "r");
-  printf("%d \n", __LINE__);
   while (true) {
    int ret = fscanf(file, "%s", a);
    if (ret == EOF)
     break;
-   printf("%d \n", __LINE__);
    locale loc;
    string str = a;
    for (string::size_type i=0; i<str.length(); ++i){
@@ -49,9 +40,9 @@ int main() {
     nove.push_back(words[k]);
     pocet.push_back(1);
     while(words[j] == words[k]){
-      if(k == words.size() -1 )
-        break;
       pocet.back()++;
+      if(k == words.size() -1)
+        break;
       k++;
     }
   }
