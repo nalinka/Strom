@@ -15,7 +15,7 @@ void PrintVector(const vector<string> list) {
 }
 
 int main() {
-
+  printf("%d", __LINE__);
   char a[200];
   vector<string> words;
   FILE* file = fopen("in.txt", "r");
@@ -29,6 +29,7 @@ int main() {
      str[i] = tolower(str[i],loc);
      if (str[i] == '.' || str[i] == ',' || str[i] == '?' || str[i] == '!')
        str.erase(i);
+       i--;
    }
    words.push_back(str);
   }
@@ -39,19 +40,23 @@ int main() {
   nove.resize(1);
   pocet[0] = 0;
   sort(words.begin(), words.end());
-  
+  printf("%d", __LINE__);
   
   for(int j =0; j < words.size(); j++){
-   if(nove[n] == words[j]){
-    if (pocet.size()==n)
+   int k = j+1;
+   printf("%d", __LINE__); 
+   if(words[j] == words[k]){
+    nove.push_back(words[k]);
+    pocet.push_back(1);
+    while(words[j] == words[k]){
       pocet[n]++;
-    else
-      pocet.push_back(1);
-   } else{
-    nove.push_back(words[j]);
-    n++;
-   } 
+      k++;
+    }
+  }else{
+    printf("%d", __LINE__);
+    pocet.push_back(1);
   }
+ }
   for(int i = 0; i < nove.size(); i++){
    printf("%s %d \n",nove[i].c_str(), pocet[i]);
   }
