@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-  char a[200];
+  char a[20000];
   vector<string> words;
   FILE* file = fopen("in.txt", "r");
   while (true) {
@@ -29,14 +29,11 @@ int main() {
   }
   vector<int> pocet;
   vector<string> nove;
-  pocet.resize(1);
-  nove.resize(1);
-  pocet[0] = 0;
   sort(words.begin(), words.end());
   int k = 0;
   for(int j =0; j < words.size(); j++){
    if(j< k)
-    break;
+    continue;
    k = j; 
    if(words[j] == words[k]){
     nove.push_back(words[k]);
