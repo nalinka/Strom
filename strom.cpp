@@ -34,39 +34,30 @@ int main() {
        i--;
      }
    }
-   printf("%d \n", __LINE__);
    words.push_back(str);
   }
-  printf("%d \n", __LINE__);
   vector<int> pocet;
   vector<string> nove;
   pocet.resize(1);
   nove.resize(1);
   pocet[0] = 0;
   sort(words.begin(), words.end());
-  printf("%d \n", __LINE__);
   
   for(int j =0; j < words.size(); j++){
-   int k = j+1;
-   printf("%d \n", __LINE__); 
+   int k = j; 
    if(words[j] == words[k]){
-    printf("%d \n", __LINE__);
     nove.push_back(words[k]);
     pocet.push_back(1);
     while(words[j] == words[k]){
       if(k == words.size() -1 )
         break;
-      printf("%d \n", __LINE__);
       pocet.back()++;
       k++;
     }
-  }else{
-    printf("%d \n", __LINE__);
-    pocet.push_back(1);
   }
  }
   for(int i = 0; i < nove.size(); i++){
-   printf("%s %d \n",nove[i].c_str(), pocet[i]);
+   printf("%s %d \n",nove[i].c_str(), pocet[i]-1);
   }
   
   
