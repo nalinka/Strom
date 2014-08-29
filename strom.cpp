@@ -33,12 +33,14 @@ int main() {
   nove.resize(1);
   pocet[0] = 0;
   sort(words.begin(), words.end());
-  
+  int k = 0;
   for(int j =0; j < words.size(); j++){
-   int k = j; 
+   if(j< k)
+    break;
+   k = j; 
    if(words[j] == words[k]){
     nove.push_back(words[k]);
-    pocet.push_back(1);
+    pocet.push_back(0);
     while(words[j] == words[k]){
       pocet.back()++;
       if(k == words.size() -1)
@@ -48,7 +50,7 @@ int main() {
   }
  }
   for(int i = 0; i < nove.size(); i++){
-   printf("%s %d \n",nove[i].c_str(), pocet[i]-1);
+   printf("%s %d \n",nove[i].c_str(), pocet[i]);
   }
   
   
