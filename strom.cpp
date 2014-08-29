@@ -38,7 +38,6 @@ int main() {
    words.push_back(str);
   }
   printf("%d \n", __LINE__);
-  int n = 0;
   vector<int> pocet;
   vector<string> nove;
   pocet.resize(1);
@@ -55,8 +54,10 @@ int main() {
     nove.push_back(words[k]);
     pocet.push_back(1);
     while(words[j] == words[k]){
+      if(k == words.size() -1 )
+        break;
       printf("%d \n", __LINE__);
-      pocet[n]++;
+      pocet.back()++;
       k++;
     }
   }else{
