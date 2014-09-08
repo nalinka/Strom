@@ -59,20 +59,31 @@ int main() {
  string slovo;
  int max = 0;
  for(int i = 0; i < nove.size(); i++){
+   printf(" %d \n", __LINE__);
    for (int j=0; j<in_str.length(); ++j){
+     n = false;
+     printf(" %d \n", __LINE__);
      if(nove[i][j]==in_str[j]){
+       printf(" %d \n", __LINE__);
        printf("%s %d \n", nove[i].c_str(), max);
        continue; 
-     }else
+     }else{
+       printf(" %d \n", __LINE__);
        n = true;
        break;
+     }
    }
-   if(n == true)
+   if(n == true){
+     printf(" %d \n", __LINE__);
      continue;
+   }
+   printf(" %d \n", __LINE__);
    printf("%s %d \n", nove[i].c_str(), max);
    if(pocet[i] > max){
+     printf(" %d \n", __LINE__);
      max = pocet[i];
-     slovo = nove[i];} 
+     slovo = nove[i];
+   } 
  }
  printf("%s %d \n", slovo.c_str(), max); 
   
