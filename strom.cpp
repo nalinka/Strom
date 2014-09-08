@@ -61,13 +61,15 @@ int main() {
  for(int i = 0; i < nove.size(); i++){
    for (int j=0; j<in_str.length(); ++j){
      if(nove[i][j]==in_str[j]){
+       printf("%s %d \n", nove[i].c_str(), max);
        continue; 
      }else
-       n == true;
+       n = true;
        break;
    }
    if(n == true)
-    break;
+     continue;
+   printf("%s %d \n", nove[i].c_str(), max);
    if(pocet[i] > max){
      max = pocet[i];
      slovo = nove[i];} 
