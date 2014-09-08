@@ -56,36 +56,30 @@ int main() {
  scanf("%s", in);
  string in_str = in;
  bool n = false;
- string slovo;
+ vector<string> slovo;
  int max = 0;
  for(int i = 0; i < nove.size(); i++){
-   printf(" %d \n", __LINE__);
    for (int j=0; j<in_str.length(); ++j){
      n = false;
-     printf(" %d \n", __LINE__);
      if(nove[i][j]==in_str[j]){
-       printf(" %d \n", __LINE__);
-       printf("%s %d \n", nove[i].c_str(), max);
        continue; 
      }else{
-       printf(" %d \n", __LINE__);
        n = true;
        break;
      }
    }
    if(n == true){
-     printf(" %d \n", __LINE__);
      continue;
    }
-   printf(" %d \n", __LINE__);
-   printf("%s %d \n", nove[i].c_str(), max);
-   if(pocet[i] > max){
-     printf(" %d \n", __LINE__);
+   if(pocet[i] >= max){
      max = pocet[i];
-     slovo = nove[i];
+     slovo.push_back(nove[i]);
    } 
  }
- printf("%s %d \n", slovo.c_str(), max); 
+ printf(" %d \n", max);
+ for(int i = 0; i < slovo.size(); i++){
+  printf("%s \n",slovo[i].c_str());
+ } 
   
  fclose(file);
 }
