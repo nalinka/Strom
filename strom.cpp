@@ -8,6 +8,23 @@
 
 using namespace std;
 
+void PrintVectorStr(vector<string> list) {
+  for(int i = 0; i < list.size(); i++){
+    printf("%s \n",list[i].c_str());
+  }
+}
+
+void normalize(string str){
+  locale loc;
+  for (string::size_type i=0; i<str.length(); ++i){
+    str[i] = tolower(str[i],loc);
+    if (str[i] == '.' || str[i] == ',' || str[i] == '?' || str[i] == '!'){
+      str.erase(i);
+      i--;
+    }
+  }
+}
+
 int main() {
   char a[20000];
   vector<string> words;
@@ -17,15 +34,8 @@ int main() {
    int ret = fscanf(file, "%s", a);
    if (ret == EOF)
     break;
-   locale loc;
-   string str = a;
-   for (string::size_type i=0; i<str.length(); ++i){
-     str[i] = tolower(str[i],loc);
-     if (str[i] == '.' || str[i] == ',' || str[i] == '?' || str[i] == '!'){
-       str.erase(i);
-       i--;
-     }
-   }
+   string str = a; 
+   normalize(str);
    words.push_back(str);
   }
   //usporiadat a spocitat
@@ -49,9 +59,9 @@ int main() {
   }
  }
  //vypisat
- for(int i = 0; i < nove.size(); i++){
-  printf("%s %d \n",nove[i].c_str(), pocet[i]);
- }
+ PrintVectorStr(nove);
+ 
+ 
  char in[200];
  scanf("%s", in);
  string in_str = in;
@@ -76,10 +86,7 @@ int main() {
      slovo.push_back(nove[i]);
    } 
  }
- printf(" %d \n", max);
- for(int i = 0; i < slovo.size(); i++){
-  printf("%s \n",slovo[i].c_str());
- } 
-  
+ printf(" %d \n", max); 
+ PrintVectorStr(slovo); 
  fclose(file);
 }
