@@ -14,7 +14,7 @@ void PrintVectorStr(vector<string> list) {
   }
 }
 
-void normalize(string str){
+string normalize(string str){
   locale loc;
   for (string::size_type i=0; i<str.length(); ++i){
     str[i] = tolower(str[i],loc);
@@ -23,6 +23,7 @@ void normalize(string str){
       i--;
     }
   }
+  return str;
 }
 
 int main() {
@@ -34,8 +35,8 @@ int main() {
    int ret = fscanf(file, "%s", a);
    if (ret == EOF)
     break;
-   string str = a; 
-   normalize(str);
+   string str = a;
+   str = normalize(str); 
    words.push_back(str);
   }
   //usporiadat a spocitat
@@ -65,6 +66,7 @@ int main() {
  char in[200];
  scanf("%s", in);
  string in_str = in;
+ in_str = normalize(in_str);
  bool n = false;
  vector<string> slovo;
  int max = 0;
