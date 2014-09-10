@@ -27,10 +27,11 @@ string normalize(string str){
 }
 
 int main() {
+  //nacitat slova do slovnika
   char a[20000];
   vector<string> words;
   FILE* file = fopen("in.txt", "r");
-  //vlozit slova a normalizovat
+  //normalizova slova a vlozit
   while (true) {
    int ret = fscanf(file, "%s", a);
    if (ret == EOF)
@@ -59,17 +60,18 @@ int main() {
     }
   }
  }
- //vypisat
+ //vypisat usporiadany slovnik
  PrintVectorStr(nove);
  
- 
+ //nacitat slovo
  char in[200];
  scanf("%s", in);
  string in_str = in;
  in_str = normalize(in_str);
- bool n = false;
+ bool n = false; //na vyhodenie slov ktore sa nezhoduju
  vector<string> slovo;
  int max = 0;
+ //najst najpravdepodobnejsie
  for(int i = 0; i < nove.size(); i++){
    for (int j=0; j<in_str.length(); ++j){
      n = false;
@@ -80,7 +82,7 @@ int main() {
        break;
      }
    }
-   if(n == true){
+   if(n == true){//ak sa slovo nezhodovalo preskoc ho
      continue;
    }
    if(pocet[i] >= max){
@@ -88,6 +90,7 @@ int main() {
      slovo.push_back(nove[i]);
    } 
  }
+ //vypisanie najpravdepodobnejsich slov
  printf(" %d \n", max); 
  PrintVectorStr(slovo); 
  fclose(file);
